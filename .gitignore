@@ -1,0 +1,21 @@
+# Arduino
+firmware/sketch/build/
+*.hex
+*.bin
+*.elf
+
+# Python
+.venv/
+**/__pycache__/
+*.pyc
+
+# configuration
+backend/.env
+frontend/config/local.php
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs locaux (serveurs de dev)
+*.log

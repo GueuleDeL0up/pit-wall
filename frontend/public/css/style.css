@@ -1,0 +1,615 @@
+/* ================================================================
+   Alpine Pitwall — Feuille de styles principale
+   (couleurs Alpine F1 : bleu + rose BWT, en aplats — pas de dégradés
+   ni d'animations décoratives)
+================================================================ */
+
+:root {
+  --blue-900: #001E3C;
+  --blue-800: #002B55;
+  --blue-700: #003A73;
+  --blue-600: #0055A4;
+  --blue-500: #1E6FC4;
+  --pink:     #FF5C9D;
+  --pink-soft:#FF8FBF;
+  --ice:      #CFE6FF;
+  --white:    #F4F8FC;
+  --grey:     #7C93AC;
+  --line:         rgba(207,230,255,.12);
+  --line-strong:  rgba(207,230,255,.22);
+  --green:  #36E0A6;
+  --amber:  #FFC247;
+  --red:    #FF5757;
+
+  --font: 'Archivo', sans-serif;
+  --cond: 'Archivo Narrow', sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---- Body & fond ---- */
+body {
+  font-family: var(--font);
+  background: var(--blue-900);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* ---- Conteneur ---- */
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================================================================
+   HEADER
+================================================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--blue-900);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  gap: 14px;
+}
+
+/* Marque */
+.brand { display: flex; align-items: center; gap: 14px; }
+
+.logo {
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  flex-shrink: 0;
+  background: var(--blue-600);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+.brand h1 {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.brand span {
+  font-family: var(--cond);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--pink-soft);
+  text-transform: uppercase;
+}
+
+/* Contrôles header */
+.hctrl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Badge live */
+.live {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ice);
+  border: 1px solid var(--line-strong);
+  padding: 7px 13px;
+  border-radius: 30px;
+  background: var(--blue-800);
+}
+
+.live .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+/* ================================================================
+   PAGE
+================================================================ */
+main { padding: 38px 0 80px; }
+
+/* Typographie */
+.eyebrow {
+  font-family: var(--cond);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--pink-soft);
+  margin-bottom: 10px;
+}
+
+.ptitle {
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.ptitle em { font-style: normal; color: var(--pink); }
+
+/* ================================================================
+   CARDS
+================================================================ */
+.card {
+  background: var(--blue-800);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+  position: relative;
+}
+
+.card:hover { border-color: var(--line-strong); }
+
+/* Grilles */
+.grid { display: grid; gap: 18px; }
+.g2   { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+/* ================================================================
+   COMPOSANTS COMMUNS
+================================================================ */
+.stat-label {
+  font-family: var(--cond);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.stat-val {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-top: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-val small { font-size: 18px; color: var(--grey); font-weight: 600; }
+
+.stat-val.sm { font-size: 22px; margin-top: 4px; }
+.stat-val.sm small { font-size: 13px; }
+
+.ico {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--blue-700);
+  color: var(--ice);
+  font-size: 15px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* Chips */
+.chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--grey);
+  border: 1px solid var(--line);
+  padding: 5px 11px;
+  border-radius: 30px;
+}
+
+.chip.live { color: var(--green); border-color: rgba(54,224,166,.3); }
+.chip.live::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.chip.idle { color: var(--amber); border-color: rgba(255,194,71,.3); }
+.chip.idle::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Boutons */
+.btn {
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 11px 20px;
+  border: 1px solid var(--line-strong);
+  background: var(--blue-800);
+  color: var(--white);
+}
+
+.btn:hover { border-color: var(--pink); color: #fff; }
+
+.btn.solid {
+  background: var(--blue-600);
+  border: none;
+  color: #fff;
+}
+
+.btn.solid:hover { background: var(--blue-500); }
+
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+
+/* Nombre de tours du circuit */
+.lap-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.lap-total label {
+  font-family: var(--cond);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--grey);
+}
+
+.lap-total input {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+  background: var(--blue-700);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: 70px;
+  text-align: center;
+  outline: none;
+}
+
+.lap-total input:focus { border-color: var(--pink); }
+
+/* ================================================================
+   CAPTEUR
+================================================================ */
+.sensor-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sensor-row {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin: 12px 0 6px;
+}
+
+.sensor-block { text-align: center; }
+
+.sensor-big {
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--pink);
+}
+
+.sensor-big .unit { font-size: .4em; color: var(--grey); }
+.sensor-big.hum   { color: var(--blue-500); }
+.sensor-big.idle  { color: var(--grey); }
+
+.sensor-unit {
+  font-family: var(--cond);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+/* Graphique */
+.chart-wrap { margin-top: 18px; width: 100%; max-width: 720px; }
+.chart-wrap svg { width: 100%; height: 120px; display: block; }
+
+.chart-line {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-line.temp { stroke: var(--pink); }
+.chart-line.hum  { stroke: var(--blue-500); }
+
+.chart-fill  { fill: var(--pink); opacity: .12; }
+.chart-grid  { stroke: rgba(255,255,255,.05); stroke-width: 1; }
+.chart-empty { font-family: var(--mono); font-size: 13px; color: var(--grey); text-align: center; padding: 30px 0; }
+
+/* ================================================================
+   LEDs
+================================================================ */
+.led-card {
+  padding: 22px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid var(--line);
+  background: var(--blue-800);
+  border-radius: 18px;
+  position: relative;
+}
+
+.led-card:hover { border-color: var(--line-strong); }
+.led-card.on    { border-color: currentColor; }
+
+.led-bulb {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  background: #0c1c33;
+  border: 3px solid rgba(255,255,255,.1);
+  display: grid;
+  place-items: center;
+}
+
+.led-card.on .led-bulb {
+  background: currentColor;
+  border-color: currentColor;
+}
+
+.led-card h4     { font-size: 16px; font-weight: 800; letter-spacing: -.3px; line-height: 1.25; }
+.led-card p      { font-family: var(--cond); letter-spacing: 2px; text-transform: uppercase; font-size: 11px; color: var(--grey); margin-top: 5px; }
+.led-card .status{ margin-top: 12px; font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--grey); }
+.led-card.on .status { color: currentColor; }
+
+.led-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+
+/* ================================================================
+   PITWALL
+================================================================ */
+/* Feux pitlane */
+.lights { display: flex; gap: 9px; justify-content: center; margin: 8px 0 14px; }
+.lights span { width: 20px; height: 20px; border-radius: 50%; background: #3a1a1a; }
+.lights span.on { background: var(--red); }
+.lights.go span { background: var(--green); }
+
+.biglap {
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: .95;
+  font-variant-numeric: tabular-nums;
+}
+
+.lap { font-family: var(--mono); font-size: 13px; color: var(--grey); margin-bottom: 6px; }
+
+.progress { height: 6px; border-radius: 6px; background: rgba(255,255,255,.07); margin-top: 22px; overflow: hidden; }
+.progress > i {
+  display: block; height: 100%;
+  border-radius: 6px;
+  background: var(--pink);
+  width: 0;
+}
+
+.session-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--mono);
+  font-size: 12px;
+  background: rgba(255,92,157,.13);
+  color: var(--pink-soft);
+  padding: 6px 13px;
+  border-radius: 30px;
+  margin-bottom: 18px;
+}
+
+/* Pneus */
+.tyre { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.tyre:last-child { border-bottom: none; }
+
+.tyre-ring {
+  width: 50px; height: 50px;
+  border-radius: 50%; flex-shrink: 0;
+  display: grid; place-items: center;
+  background: #001022;
+  font-family: var(--mono); font-weight: 700; font-size: 13px;
+}
+
+.tyre h4 { font-size: 15px; font-weight: 700; }
+.tyre p  { font-family: var(--cond); letter-spacing: 1px; color: var(--grey); font-size: 13px; text-transform: uppercase; }
+.tyre .pct { margin-left: auto; font-family: var(--mono); font-weight: 700; font-size: 16px; }
+
+/* Feed pit */
+.feed-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: var(--blue-700);
+  border: 1px solid var(--line);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.feed-row .num { font-family: var(--mono); font-weight: 700; min-width: 40px; }
+.feed-row .t   { margin-left: auto; font-family: var(--mono); color: var(--grey); font-size: 12px; }
+
+.pill {
+  font-family: var(--cond);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  padding: 3px 11px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pill.in  { background: rgba(255,87,87,.14);   color: #FF8a8a; }
+.pill.out { background: rgba(54,224,166,.14);   color: var(--green); }
+
+.pill.pending { background: rgba(255,194,71,.14); color: var(--amber); }
+.pill.done    { background: rgba(54,224,166,.14); color: var(--green); }
+
+/* ================================================================
+   BUZZER STAND
+================================================================ */
+.buzzer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.buzzer-btn {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .3px;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 14px 12px;
+  border: 1px solid var(--line-strong);
+  border-top: 3px solid var(--c, var(--blue-500));
+  background: var(--blue-700);
+  color: var(--white);
+}
+
+.buzzer-btn:hover { border-color: var(--pink); }
+
+/* ================================================================
+   TIMING
+================================================================ */
+.timing-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.timing-table th, .timing-table td { text-align: left; padding: 12px; border-bottom: 1px solid var(--line); }
+.timing-table th {
+  font-family: var(--cond);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--grey);
+  font-weight: 600;
+}
+.timing-table td.num, .timing-table th.num { font-family: var(--mono); text-align: right; }
+.timing-table tr:last-child td { border-bottom: none; }
+.timing-table .pos { font-family: var(--mono); font-weight: 700; color: var(--pink); }
+
+/* ================================================================
+   MONOPLACES
+================================================================ */
+.car-photo-stage {
+  height: 200px;
+  background: var(--blue-700);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  position: relative;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-photo-placeholder { font-size: 90px; }
+
+.car-photo-badge {
+  position: absolute; top: 12px; left: 12px;
+  font-family: var(--cond);
+  letter-spacing: 3px; text-transform: uppercase; font-size: 11px;
+  color: var(--pink-soft);
+  background: var(--blue-900);
+  padding: 6px 12px;
+  border-radius: 30px;
+  border: 1px solid var(--line-strong);
+}
+
+.car-stat-card {
+  background: var(--blue-700);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.car-stat-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.car-stat-head .chassis { font-size: 18px; font-weight: 800; letter-spacing: -.3px; }
+.car-stat-head .driver {
+  font-family: var(--cond);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-size: 12px;
+}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+  text-align: center;
+  color: var(--ice);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media (max-width: 560px) {
+  .timing-table { font-size: 12px; }
+}
